@@ -23,5 +23,5 @@ if prompt:
     
     for message in st.session_state.messages :
         with st.chat_message(message['role']) : 
-            clean_text =re.sub(r"[\{|\}]","",message["content"]) 
+            # clean_text =re.sub(r"[\{|\}]","",message["content"]) 
             st.write(f"{message["content"]}")
