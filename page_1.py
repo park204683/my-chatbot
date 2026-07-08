@@ -23,14 +23,16 @@ if prompt:
     
     for message in st.session_state.messages :
         with st.chat_message(message['role']) : 
-            raw_content = message["content"]
+            # raw_content = message["content"]
 
-            if isinstance(raw_content, set):
-                clean_text = next(iter(raw_content)) 
-            else:
-                clean_text = str(raw_content)
+            # if isinstance(raw_content, set):
+            #     clean_text = next(iter(raw_content)) 
+            # else:
+            #     clean_text = str(raw_content)
 
-            clean_text = clean_text.replace("\\n", "\n")
+            # clean_text = clean_text.replace("\\n", "\n")
 
-            st.write(clean_text)
+            # st.write(clean_text)
             # st.write(f"{message["content"]}")
+            # {안녕\n뭘 도와줄까}
+            st.markdown(f"{message["content"]}")
