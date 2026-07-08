@@ -23,5 +23,14 @@ if prompt:
     
     for message in st.session_state.messages :
         with st.chat_message(message['role']) : 
-            # clean_text =re.sub(r"[\{|\}]","",message["content"]) 
-            st.write(f"{message["content"]}")
+            raw_content = message["content"]
+
+            if isinstance(raw_content, set):
+                clean_text = next(iter(raw_content)) 
+            else:
+                clean_text = str(raw_content)
+
+            clean_text = clean_text.replace("\\n", "\n")
+
+            st.write(clean_text)
+            # st.write(f"{message["content"]}")
